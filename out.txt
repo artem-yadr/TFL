@@ -1,0 +1,63 @@
+digraph G {node [shape = box]
+"Order:
+	Rule: f(g(x)) -> g(h(x,x))"
+	 -> 
+"Order:
+	Rule: g(x) -> g(h(x,x))"
+	[label = "KB2 f(g(x)) -> g(h(x,x))"];
+"Order:
+	Rule: g(x) -> g(h(x,x))"
+	 -> 
+"Order:
+	Rule: x -> g(h(x,x))"
+	[label = "KB2 g(x) -> g(h(x,x))"];
+"Order:
+	Rule: g(x) -> g(h(x,x))"
+	 -> 
+"Order:
+	Rule: x -> h(x,x)"
+	[label = "KB4(lex) g(x) -> g(h(x,x))"][color=red];
+"Order:
+	Rule: f(g(x)) -> g(h(x,x))"
+	 -> 
+"Order:
+f > g
+	Rule: f(g(x)) -> h(x,x)"
+	[label = "KB3 f(g(x)) -> g(h(x,x))"];
+"Order:
+f > g
+	Rule: f(g(x)) -> h(x,x)"
+	 -> 
+"Order:
+f > g
+	Rule: g(x) -> h(x,x)"
+	[label = "KB2 f(g(x)) -> h(x,x)"];
+"Order:
+f > g
+	Rule: g(x) -> h(x,x)"
+	 -> 
+"Order:
+f > g
+	Rule: x -> h(x,x)"
+	[label = "KB2 g(x) -> h(x,x)"];
+"Order:
+f > g
+	Rule: g(x) -> h(x,x)"
+	 -> 
+"Order:
+f > g
+g > h
+	Rule: g(x) -> x"
+	[label = "KB3 g(x) -> h(x,x)"];
+"Order:
+f > g
+	Rule: g(x) -> h(x,x)"
+	 -> 
+"Order:
+f > g
+g > h
+	Rule: g(x) -> x"
+	[label = "KB3 g(x) -> h(x,x)"];
+}
+digraph G {node [shape = box]
+}
